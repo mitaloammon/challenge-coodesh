@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SystemController;
 
 Route::get('/', function () {
     return response()->json([
@@ -17,8 +18,11 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/', [SystemController::class, 'status']);
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{code}', [ProductController::class, 'show']);
 Route::put('/products/{code}', [ProductController::class, 'update']);
 Route::delete('/products/{code}', [ProductController::class, 'destroy']);
+
+Route::post('/import', [ProductController::class, 'importProducts']);

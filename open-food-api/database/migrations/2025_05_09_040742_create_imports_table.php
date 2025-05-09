@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('imports', function (Blueprint $table) {
-            $table->id();
-            $table->string('filename');
-            $table->integer('imported_count');
+            $table->bigIncrements('id');
+            $table->integer('total_imported')->default(0);
+            $table->integer('total_failed')->default(0);
             $table->timestamp('executed_at');
-            $table->boolean('success')->default(true);
             $table->timestamps();
         });
     }

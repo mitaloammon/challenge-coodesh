@@ -10,9 +10,10 @@ class Import extends Model
     use HasFactory;
 
     protected $fillable = [
-        'file_name',
-        'imported_at',
+        'total_imported',
+        'total_failed',
+        'executed_at',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 }
