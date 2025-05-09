@@ -26,3 +26,4 @@ Route::put('/products/{code}', [ProductController::class, 'update']);
 Route::delete('/products/{code}', [ProductController::class, 'destroy']);
 
 Route::post('/import', [ProductController::class, 'importProducts']);
+Route::get('/product/{barcode}', [ProductController::class, 'getProduct']);
